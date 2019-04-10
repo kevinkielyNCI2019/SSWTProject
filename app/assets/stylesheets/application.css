@@ -1,0 +1,364 @@
+body {
+	margin: 0;
+	font-family: Tahoma, Geneva, sans-serif;
+	background-color: #fff;
+}
+
+
+ul { 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;    
+    
+}
+
+li {float:left;}
+
+li a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+
+
+.mainCont { 
+    
+    margin: auto;
+    width:80%;
+    border: 3px solid #b3e0ff;
+    padding: 10px;
+    text-align: center;
+}
+
+.welcomeIm {width: 30%;}
+
+
+.pagecontainer {
+      width: 100%;
+      min-height: 400px;
+}
+
+.mainCont {         
+    margin: auto;    
+    width:80%;    
+    border: 3px solid #b3e0ff;    
+    padding: 10px;    
+    text-align: center;
+    
+}
+    
+.welcomeIm {
+    width: 30%;
+    
+}
+
+#itemsContainer h1 {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+    
+}
+
+
+.itemhols {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 22%;
+    padding:10px;
+    min-height: 300px;
+   
+}
+
+
+.itemhols h1 {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px
+    
+}
+
+
+.itemhols p {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px
+    
+}
+
+
+
+.itemholsIm {
+    width: 60%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
+    
+}
+
+.cartIm {
+    height: 60px;
+     margin-left: auto; 
+    margin-right: auto; 
+    display: block;
+    
+}
+
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #ff5722;
+}
+
+#cats input[type=submit] {
+    width: 100%;
+    
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ff5722;
+    color: white;
+}
+
+/* MY OWN CSS FROM HERE ON */
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('banner.jpg');
+  min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("/w3images/parallax2.jpg");
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("/w3images/parallax3.jpg");
+  min-height: 400px;
+}
+
+/* change nav bar color */
+#phonesNavbar {
+	background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+
+#noticePopup {
+    display: none;
+    font-size: 30px;
+    text-align: center;
+    color: #000;
+    position: relative;
+    top:0;
+    width: 50%;
+    margin: 0 auto;
+    z-index: 99999;
+    background-color: rgba(0,0,0,0.2);
+    padding:20px;
+    border: 2px dashed darkgrey;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+
+/* tool tips css*/
+
+.wy-tooltip {
+	border: 1px solid #F1D031;
+	color: #444;
+	background: #FFFFA3;
+	box-shadow: 0 2px 3px #999;
+	position: absolute;
+	padding: 5px;
+	text-align: left;
+ 	border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 -webkit-border-radius: 5px;
+}
+.wy-hide { display: none; }
+
+/* change nav bar color */
+#myNavbar {
+	background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+.smallerImgs {
+    width: 100%;
+    
+}
+
+.myCols {
+    background-color: whitesmoke;
+    padding: 10px;
+    border-bottom: 2px #ff4500 solid;
+    margin-bottom: 10px;
+}
+
+.myCols h2 {
+    
+    padding-left: 10px;
+}
+
+.myCols img {
+    border: 1px solid lightgrey;
+}
+
+.bottomButtons {
+   text-align: center;
+   margin-top: 10px;
+   padding-bottom: 10px;
+}
+
+textarea {
+    max-width:95%;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* search box at top right hand corner */
+#mySearch {
+      display:none;
+      width: 100%;
+      padding: 50px 0;
+      text-align: center;
+      background-color: white;
+      margin-top: 20px;
+}

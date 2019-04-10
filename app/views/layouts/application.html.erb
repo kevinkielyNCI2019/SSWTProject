@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Bee Sharp Record Store</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_link_tag    'application', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Lato', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    
+    <%= stylesheet_link_tag    'w3', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <%=link_to "HOME", "/", :class => "w3-bar-item w3-button" %>
+    <%=link_to "ABOUT US", about_path, :class => "w3-bar-item w3-button w3-hide-small" %>
+    <%=link_to "HELP", help_path, :class => "w3-bar-item w3-button w3-hide-small" %>
+    <%=link_to "OUR PRODUCTS", "/items", :class => "w3-bar-item w3-button w3-hide-small" %>
+    <%=link_to "VIEW CART", "/cart", :class => "w3-bar-item w3-button w3-hide-small" %>
+    <% if user_signed_in? %>
+          
+          <%=link_to "YOUR ACCOUNT", "/account", :class => "w3-bar-item w3-button w3-hide-small" %>
+          
+          
+          <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete, :class => "w3-bar-item w3-button w3-hide-small" %>
+          
+          <% else %>
+          
+          <%= link_to "SIGN UP", new_user_registration_path, :class => "w3-bar-item w3-button w3-hide-small" %>
+          <%= link_to "SIGN IN", new_user_session_path, :class => "w3-bar-item w3-button w3-hide-small" %>
+          
+          
+        <% end %>
+        
+     <% if session[:login] == 1 %>
+        
+        <%=link_to "Admin Logout", logout_path, :class => "w3-bar-item w3-button w3-hide-small" %>
+        
+        <% else %>
+        
+        <%=link_to "Admin Login", login_path, :class => "w3-bar-item w3-button w3-hide-small" %>
+        
+        <% end %>
+    
+    <button onclick="searchFunction()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red"><i class="fa fa-search"></i></button>
+    <div id="mySearch"><%= render 'layouts/search' %></div>
+  </div>
+  
+  
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    
+     <%=link_to "ABOUT US", about_path, :class => "w3-bar-item w3-button" %>
+    <%=link_to "HELP", help_path, :class => "w3-bar-item w3-button" %>
+    <%=link_to "OUR PRODUCTS", "/items", :class => "w3-bar-item w3-button" %>
+    <%=link_to "VIEW CART", "/cart", :class => "w3-bar-item w3-button" %>
+    <% if user_signed_in? %>
+          <a href="#" class="w3-bar-item w3-button">HELLO, <%= current_user.email %></a>
+          <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete, :class => "w3-bar-item w3-button" %>
+          
+          <% else %>
+          
+          <%= link_to "SIGN UP", new_user_registration_path, :class => "w3-bar-item w3-button" %>
+          <%= link_to "SIGN IN", new_user_session_path, :class => "w3-bar-item w3-button" %>
+          
+          
+        <% end %>
+        
+     <% if session[:login] == 1 %>
+        
+        <%=link_to "Old Logout", logout_path, :class => "w3-bar-item w3-button" %>
+        
+        <% else %>
+        
+        <%=link_to "Old Login", login_path, :class => "w3-bar-item w3-button" %>
+        
+        <% end %>
+    
+    <!-- <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">HELP</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">OUR PHONES</a> -->
+    
+    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    
+    <span class="w3-center w3-padding-large w3-deep-orange w3-xlarge w3-wide w3-animate-opacity"><span class="smallerHeading">BEE#SHARP RECORD STORE</span></span>
+  </div>
+</div>
+
+
+    <div class="pagecontainer">
+    <%= yield %>
+    </div>
+
+<footer class="w3-center w3-deep-orange w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>©2019 BEE#SHARP RECORD STORE</p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+
+<script>
+function searchFunction() {
+  var x = document.getElementById("mySearch");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+  </body>
+</html>

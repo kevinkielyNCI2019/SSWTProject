@@ -1,0 +1,46 @@
+<div class="w3-content w3-container w3-padding-64">
+  
+  <h1 class="w3-center">WELCOME TO YOUR ACCOUNT PAGE, <%= current_user.email %></h1>
+  
+   <h3>Would you like to....</h3>
+   
+
+  <table id="customers">
+      <tr>
+          <td>
+              View all your orders
+          </td>
+          
+          <td>
+              <%= link_to "View", "/orders", :class => "w3-button w3-large w3-black w3-hover-deep-orange w3-hover-deep-orange" %>
+          </td>
+          
+      </tr>
+      
+      <tr>
+          <td>
+              Change your account password/delete account?
+          </td>
+          
+          <td>
+          <%= link_to "Change", edit_user_registration_path, :class => "w3-button w3-large w3-black w3-hover-deep-orange w3-hover-deep-orange" %>
+          </td>
+      </tr>
+      
+      
+      
+      
+      
+      
+  </table>
+  
+ 
+  
+  
+  
+  
+  
+
+
+
+</div>

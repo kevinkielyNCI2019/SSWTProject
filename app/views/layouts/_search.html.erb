@@ -1,0 +1,5 @@
+<%= form_tag("/search", :method => "post") do %>
+Search for something:
+<%= text_field_tag(:q) %>
+<%= submit_tag("Search") %>
+<% end %>

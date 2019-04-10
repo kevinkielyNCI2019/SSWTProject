@@ -1,0 +1,68 @@
+<% if @cart.empty? %>
+    <p>Please at least buy one item from me</p>
+<% end %>
+
+<div class="w3-content w3-container w3-padding-64">
+
+
+<div id = "itemsContainer">
+    
+    <table id = "customers">
+        <% total = 0 %>
+        
+        <tr>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Increase/Decrease</th>
+                <th>Total</th>
+                
+            </tr>
+        
+        <% @cart.each do |id, quantity| %>
+        
+            <% item = Item.find_by_id(id) %>
+            
+            
+            
+            <tr>
+                
+                
+                <td class="image"><%= image_tag(item.albumart, :class => "cartIm") if item.albumart.attached? %></td>
+                <td class="price"><%= number_to_currency(item.albumprice, :unit=>"€") %></td>
+                <td class="quantity"><%= quantity %></td>
+                <td class="price"><a href="/cart/remove/<%= item.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">X</a></td>
+                <td class="price"><a href="/cart/increase/<%= item.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">+</a>&nbsp;
+                <a href="/cart/decrease/<%= item.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">-</a></td>
+                <td class="price"><%= number_to_currency(quantity * item.albumprice, :unit=>"€") %></td>
+
+                
+            </tr>
+            
+            <% total += quantity * item.albumprice %>
+        
+        <% end %>
+        
+            
+        
+            <tr>
+                
+                <td class="price" colspan="4" text-align="right">The cart total is: <strong><%= number_to_currency(total, :unit=>"€") %></strong></td>
+                
+            </tr>
+        
+        
+    </table>
+    
+    
+                
+                <a href="/cart/clear" class="w3-button w3-large w3-black w3-hover-deep-orange">Clear Cart</a>
+                <a href="/items" class="w3-button w3-large w3-black w3-hover-deep-orange">Continue Shopping</a>
+                <a href="/checkout" class="w3-button w3-large w3-black w3-hover-deep-orange">Checkout</a>
+
+            
+    
+</div>
+
+</div>

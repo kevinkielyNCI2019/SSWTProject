@@ -1,0 +1,8 @@
+<h1 class="w3-center">Editing Item</h1>
+
+<%= render 'form', item: @item %>
+
+
+<div class="bottomButtons">  
+<%= link_to 'Show', @item , :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button" %> | <%= link_to 'Back', items_path, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
+</div>

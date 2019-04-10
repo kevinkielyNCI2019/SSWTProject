@@ -1,0 +1,43 @@
+<div class="w3-content w3-container w3-padding-64">
+  
+  <h1 class="w3-center">EDIT YOUR COMMENT</h1>
+
+<%= form_for([@item, @comment]) do |f| %>
+
+    <table id="customers">
+    <tr>
+        <td>
+            Review title:
+        </td>
+        <td>
+            <%= f.text_field :title %>
+        </td>
+     </tr> 
+    <tr>
+        <td>
+            Your Comments:
+        </td>
+        <td>
+            <%= f.text_area :content %>
+        </td>
+    </tr>
+    <tr>
+         <td>
+            Rating (1 to 5):
+        </td>
+        <td>
+            <%= f.number_field :rating %>
+        </td>
+        
+    </tr>
+    
+    <tr>
+        <td colspan="2"><%= f.submit %></td>
+    </tr>
+    
+    
+</table>
+
+<% end %>
+
+</div>

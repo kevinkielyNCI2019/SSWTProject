@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="w3-content w3-container w3-padding-64">
+  
+  <p><%= link_to '<< Back to List of Albums', items_path, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button" %></p>
+
+  <h1 class="w3-center"><%= @item.albumartist %>: <%= @item.albumtitle %> [<%= @item.albumformat %>]</h1>
+
+<p>
+        
+        <%= image_tag(@item.albumart, :class => "itemholsIm") if @item.albumart.attached? %> 
+
+</p>
+
+<br/>
+<p>
+  <%= @item.albumdesc %>
+</p>
+
+<div class="w3-row w3-padding-32 w3-section">
+
+  <div class="w3-col m4 w3-container"><h3>Price: <%= number_to_currency(@item.albumprice, :unit => "€") %></h3></div>
+  <div class="w3-col m4 w3-container"><h3>Genre: <%= @item.albumgenre %></h3></div>
+  <% if user_signed_in? %>
+  <div class="w3-col m4 w3-container"><a href="/cart/<%= @item.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">Add me to cart!</a></div>
+  <% end %>
+
+</div>
+<% if session[:login] == 1 %>
+<%= link_to 'Edit', edit_item_path(@item), :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
+<% end %>
+<hr/>
+<br/><br/>
+
+
+
+<%= render 'comments/comment' %>
+
+
+
+</div>

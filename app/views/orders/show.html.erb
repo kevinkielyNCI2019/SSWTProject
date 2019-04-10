@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+<div class="w3-content w3-container w3-padding-64">
+  
+  <h1 class="w3-center">ORDER DETAILS</h1>
+
+
+   
+   <% if @order.user.email == @user.email %>
+  
+    <p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user.email %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+
+<br/><br/>
+
+
+  <h1>Items in this order are</h1>
+  <table id="customers">
+      
+      <tr>
+        <th>Order ID no.</th>
+        <th>Item ID no.</th>
+        <th>Album Title</th>
+        <th>Quantity</th>
+        <th>Album Price</th>
+        <th>Total Price</th>
+        
+    </tr>
+      
+      <% @total = 0 %>
+    <% @orderitems.each do |orderitem| %>
+    
+    
+     
+    <tr>
+      <td><%= orderitem.order_id %></td>
+      <td><%= orderitem.id %></td>
+      <td><%= orderitem.title %></td>
+      <td><%= orderitem.quantity %></td>
+      <td><%= orderitem.price %></td>
+      <% linetotal =(orderitem.quantity * orderitem.price) %>
+    
+     <td><%= linetotal %></td>
+      </tr>
+      <% @total += linetotal %>
+    <% end %>
+    
+     <tr>
+       
+       <% if @total > 70 %>
+       
+        <% shipping = 0 %>
+        
+      <% else %>
+      <% shipping = 5 %>
+      <% end %>
+      
+        <% @grandtotal = shipping + @total %>
+        <td>Shipping &euro;5</td>
+        <td>Your Total payable today is: &euro;<%= @grandtotal %></td>
+        <td><a href="/paid/<%= @order.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">Pay for it</a></td>
+        </tr>
+   </table> 
+   
+   
+      <% else %>
+   
+      <h1>You did not place this order</h1>
+      
+      <% end %>
+  
+  
+
+
+    
+    
+    
+</div>

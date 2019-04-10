@@ -1,0 +1,32 @@
+<% @comments.each do |comment| %>
+
+<div class="myCols">
+
+    <p><i>"<%= comment.title %>"</i> posted by: <b><%= comment.user.email %></b></p>
+
+    <p><%= comment.content %></p>
+    
+   <% x = comment.rating
+  y = 5 - x  %>
+ <% x.times do %>
+    <%= image_tag("stars/star-on.png", alt: "Score out of 5") %>
+<% end %>
+<% y.times do %>
+    <%= image_tag("stars/star-off.png", alt: "Score out of 5") %>
+<% end %>
+    
+    
+    <p></p>
+    
+    <% if current_user == comment.user %>
+    <%= link_to "Delete Comment", [comment.item, comment], method: :delete, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button" %>
+    <%= link_to "Edit comment", edit_item_comment_path(comment.item, comment), :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button" %>
+    <% end %>
+</div>
+
+<% end %>
+
+<% if user_signed_in? %>
+<div id ="commentLink"></div>
+<%= render 'comments/form' %>
+<% end %>

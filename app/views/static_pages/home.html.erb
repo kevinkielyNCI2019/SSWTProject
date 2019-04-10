@@ -1,0 +1,53 @@
+<% provide(:title, "Home") %>
+
+<div class="w3-content w3-container w3-padding-64">
+    
+<h1 class="w3-center">WELCOME</h1>    
+    <div class="w3-row w3-padding-32 w3-section">
+        
+        <p><strong>Welcome to BEE#SHARP RECORD STORE!</strong></p>
+        <p>We are an online record store selling legacy muscial items, mainly CDs, Vinyl albums and also in cassette tape format. Browse through our categories
+        below to view the different musical formats, or choose the "Our Products" link from the main menu to view our entire catalogue..</p>
+        
+        
+        
+        <div class="w3-col m4 w3-container">
+            <div id="cats">
+            <%= image_tag("formats/cds.jpg", alt: "Welcome Logo", :class => "smallerImgs") %> 
+            <%= form_tag("/filter", :method => "post") do %>
+        
+            <%= hidden_field_tag 'q2', 'CD'  %>
+            <%= submit_tag("CDs") %>
+            <% end %>
+            </div>
+        </div>
+        
+        <div class="w3-col m4 w3-container">
+            <div id="cats">
+             <%= image_tag("formats/tapes.jpg", alt: "Welcome Logo", :class => "smallerImgs") %> 
+            <%= form_tag("/filter", :method => "post") do %>
+        
+            <%= hidden_field_tag 'q2', 'Tape'  %>
+            <%= submit_tag("Tapes") %>
+        <% end %>
+        </div>
+        </div>
+        
+        <div class="w3-col m4 w3-container">
+            <div id="cats">
+                <%= image_tag("formats/vinyl.jpg", alt: "Welcome Logo", :class => "smallerImgs") %> 
+             <%= form_tag("/filter", :method => "post") do %>
+        
+                <%= hidden_field_tag 'q2', 'Vinyl'  %>
+                <%= submit_tag("Vinyl") %>
+                <% end %>
+                
+            </div>
+        </div>
+    
+        
+
+    </div>
+    
+    
+</div>

@@ -1,0 +1,69 @@
+<% if @items.length == 0 %>
+
+
+We dont have that sorry!
+
+<% end %>
+
+
+
+
+<div class="w3-content w3-container w3-padding-64">
+  
+  <h1 class="w3-center">YOUR SEARCH RESULT(S) ARE...</h1>
+  
+
+
+    <% @items.each do |item| %>
+    
+    
+      
+      <div class="w3-col m4 w3-panel">
+      
+      <%= image_tag(item.albumart, :class => "itemholsIm") if item.albumart.attached? %>
+        
+        </div>
+        
+        <div class="w3-col m8 w3-panel">
+          <div class="myCols">
+          
+        <p><strong>Artist: <%= item.albumartist %></strong><br/>
+        Album: <%= item.albumtitle %></p>
+        <p>Price: <%= number_to_currency(item.albumprice, :unit => "€") %><br/>
+        Genre: <%= item.albumgenre %><br/>
+        Musical Format: <%= item.albumformat %>
+        </p>
+        
+        <p>
+        <%= link_to 'Show More >>', item, :class => "w3-button w3-large w3-black w3-hover-deep-orange w3-hover-deep-orange", :role => "button"%>
+        
+        <a href="/cart/<%= item.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">Add me to cart!</a>
+        
+        
+        
+        <% if session[:login] == 1 %>
+          <%= link_to 'Edit', edit_item_path(item), :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
+        <% end %>
+        </p></div>
+          
+        </div>
+    
+      
+    <% end %>
+    
+    <div class="bottomButtons">   
+    
+   <% if session[:login] == 1 %>
+    
+       <%= link_to 'Create New Record',  new_item_path, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button" %>
+       
+       <% end %>
+    </div>
+
+
+<br>
+
+
+
+</div>

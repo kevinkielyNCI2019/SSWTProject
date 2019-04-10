@@ -1,0 +1,65 @@
+<div class="w3-content w3-container w3-padding-64">
+    <h1 class="w3-center">THANK YOU FOR ORDERING!</h1>
+
+
+<table id="customers">
+    <tr>
+         
+        <% @orders.limit(1).order(id: :desc).each do |order| %>
+
+       <td>Order reference for the order you just placed is: <%= order.id %></td>
+        <% end %>
+    </tr>
+</table>    
+    
+    
+<table id="customers">
+     <% @total = 0 %>
+    <% @orderitems.each do |id,quantity| %>
+      <tr>
+        <% item = Orderitem.find_by_id(id) %>
+       
+        <td><%= item.title %></td>
+        <td><%= item.quantity %></td>
+       <td><%=number_to_currency(item.price, :unit => "€")%></td> 
+       <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
+       </tr>
+       
+       <% totalx = (item.quantity * item.price)%>
+
+     
+     
+      <% @total += totalx %>
+      
+      </tr>
+    <% end %>
+    
+    
+    <tr>
+        
+       <td>Order Total: &euro; <%= @total %></td>
+       
+     </tr>
+     
+     <% if @total > 70 %>
+     
+        <% shipping = 0 %>
+        
+    <% else %>
+    <% shipping = 5 %>
+    <% end %>
+    
+      <% @overall = shipping + @total %>
+      <tr>
+          <td>Shipping &euro;5 (FREE SHIPPING ON ORDERS OVER €70!</td>
+          <td>You Pay &euro; <%= @overall %></td>
+      </tr>
+      
+      
+</table>
+
+
+    
+    <a href="/paid/<%= @order.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">Pay for it</a>
+    
+</div>

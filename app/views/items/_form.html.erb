@@ -1,0 +1,56 @@
+<div class="w3-content w3-container w3-padding-64">
+
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Album Title:
+    <%= form.text_field :albumtitle %>
+  </div>
+
+  <div class="field">
+    Album Artist:
+    <%= form.text_field :albumartist %>
+  </div>
+
+  <div class="field">
+    Album Description:
+    <%= form.text_area :albumdesc, :size =>"100x15" %>
+  </div>
+
+  <div class="field">
+    Album Price:
+    <%= form.text_field :albumprice %>
+  </div>
+
+  <div class="field">
+    Musical Genre:
+    <%= form.text_field :albumgenre %>
+  </div>
+
+  <div class="field">
+    Music Format [Tape, CD, Vinyl]:
+    <%= form.select :albumformat, ['Vinyl', 'CD', 'Tape']%>
+  </div>
+
+  <div class="field">
+    Album Art Uploader:
+    <%= form.file_field :albumart %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</div>

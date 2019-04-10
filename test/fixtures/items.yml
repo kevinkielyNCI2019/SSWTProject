@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  albumtitle: MyString
+  albumartist: MyString
+  albumdesc: MyText
+  albumprice: 9.99
+  albumgenre: MyString
+  albumformat: MyString
+  albumart: MyString
+
+two:
+  albumtitle: MyString
+  albumartist: MyString
+  albumdesc: MyText
+  albumprice: 9.99
+  albumgenre: MyString
+  albumformat: MyString
+  albumart: MyString

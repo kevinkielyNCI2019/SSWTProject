@@ -1,0 +1,43 @@
+<%= form_for([@item, @item.comments.build]) do |f| %>
+<br/><br/>
+<h2 class="w3-center">LEAVE A REVIEW!</h2>
+
+<table id="customers">
+    <tr>
+        <td>
+            Review title:
+        </td>
+        <td>
+            <%= f.text_field :title %>
+        </td>
+     </tr> 
+    <tr>
+        <td>
+            Your Comments:
+        </td>
+        <td>
+            <%= f.text_area :content %>
+        </td>
+    </tr>
+    <tr>
+         <td>
+            Rating (1 to 5):
+        </td>
+        <td>
+            <%= f.number_field :rating %>
+        </td>
+        
+    </tr>
+    
+    <tr>
+        <td colspan="2"><%= f.submit %></td>
+    </tr>
+    
+    
+</table>
+
+     
+   
+   
+
+<% end %>
