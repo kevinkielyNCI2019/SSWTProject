@@ -362,3 +362,11 @@ textarea {
       background-color: white;
       margin-top: 20px;
 }
+
+.userStatus {
+    text-align:center;
+    padding: 5px;
+    color: #fff;
+    background-color: #000;
+    
+}

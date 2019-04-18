@@ -41,7 +41,7 @@ We dont have that sorry!
         
        
         
-        <% if session[:login] == 1 %>
+        <% if user_signed_in? && current_user.admin? %>
           <%= link_to 'Edit', edit_item_path(item), :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
           <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
         <% end %>
@@ -54,7 +54,7 @@ We dont have that sorry!
     
     <div class="bottomButtons">   
     
-   <% if session[:login] == 1 %>
+   <% if user_signed_in? && current_user.admin? %>
     
        <%= link_to 'Create New Record',  new_item_path, :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button" %>
        

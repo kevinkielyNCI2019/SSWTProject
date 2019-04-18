@@ -26,7 +26,7 @@
   <% end %>
 
 </div>
-<% if session[:login] == 1 %>
+<% if user_signed_in? && current_user.admin? %>
 <%= link_to 'Edit', edit_item_path(@item), :class => "w3-button w3-large w3-black w3-hover-deep-orange", :role => "button"  %>
 <% end %>
 <hr/>

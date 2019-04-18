@@ -63,7 +63,7 @@ end
     end  
   end
   
-  ##### increase the cart quantity
+##### increase the cart quantity
   
   def increase
     id = params[:id]
